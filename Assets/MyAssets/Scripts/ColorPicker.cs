@@ -13,7 +13,7 @@ public class ColorPicker : MonoBehaviour
     private Material originalColor;
     private Material novoMat;//material que selecionei
     void OnEnable()
-    {
+    {       
         originalColor = mesh.material;
         novoMat = mesh.material;
     }
@@ -30,11 +30,14 @@ public class ColorPicker : MonoBehaviour
     {
         novoMat = originalColor;
         mesh.material = originalColor;
+        mesh.gameObject.GetComponent<ToggleSelection>().ChangeEditingStatus();
         gameObject.SetActive(false);
+
     }
     public void SalvarCor()
     {
         mesh.material = novoMat;
+        mesh.gameObject.GetComponent<ToggleSelection>().ChangeEditingStatus();
         gameObject.SetActive(false);
     }
 }

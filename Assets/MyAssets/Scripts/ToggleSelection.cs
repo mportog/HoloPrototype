@@ -5,45 +5,43 @@ using UnityEngine;
 
 public class ToggleSelection : MonoBehaviour, IInputClickHandler, IFocusable
 {
-    private bool isOpen;
+    private bool menuIsOpen;
+    private bool editing;
 
-    public bool spray;
     public GameObject select;
     public GameObject tooltip;
-    public GameObject[] otherMenus;//outros menus que nao o que cliquei
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        isOpen = !isOpen;
-        select.SetActive(isOpen);
-        otherMenus[0].SetActive(!isOpen);
-        otherMenus[1].SetActive(!isOpen);
-        if (spray && isOpen)
-            GetComponentInChildren<ParticleSystem>(true).gameObject.SetActive(true);
-        if (spray && !isOpen)
-            GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
+        if (!editing)
+        {
+            menuIsOpen = !menuIsOpen;
+            select.SetActive(menuIsOpen);
+        }
     }
     void OnDisable()
     {
         select.SetActive(false);
     }
     void OnEnable()
-    {         
-        isOpen = false;
-    }
-
-    void Update()
     {
-       
+        menuIsOpen = false;
+        editing = false;
+        select.SetActive(menuIsOpen);
     }
-
     public void OnFocusEnter()
     {
-        tooltip.SetActive(true);
+        if (!editing && !menuIsOpen)
+            tooltip.SetActive(true);
     }
-
     public void OnFocusExit()
     {
+        if (!editing && !menuIsOpen)
+            tooltip.SetActive(false);
+    }
+    public void ChangeEditingStatus()
+    {
+        this.editing = !editing;
         tooltip.SetActive(false);
     }
 }
