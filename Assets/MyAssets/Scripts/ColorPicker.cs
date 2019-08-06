@@ -5,18 +5,15 @@ using UnityEngine;
 
 public class ColorPicker : MonoBehaviour
 {
-
-    public MeshRenderer mesh;//mesh MAT que vou alterar   
-    public GameObject colorChild;//pai das caixas de cor
+    public MeshRenderer mesh;
+    public GameObject colorChild;
     public SliderGestureControl grad;
+    public string fieldName;
+    public Material originalColor;
 
-    private Material originalColor;
-    private Material novoMat;//material que selecionei
-    void OnEnable()
-    {       
-        originalColor = mesh.material;
-        novoMat = mesh.material;
-    }
+    private Material novoMat;
+
+    void OnEnable() { }
     public void SelectedMaterial(int novo)
     {
         novoMat = colorChild.transform.GetChild(novo).GetComponent<MeshRenderer>().material;

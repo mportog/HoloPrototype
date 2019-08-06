@@ -568,11 +568,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: HolographPrototype
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\GitLab\HoloPrototype\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 803fc83a866bd601
   metroApplicationDescription: HolographPrototype
   wsaImages: {}
   metroTileShortName: 
