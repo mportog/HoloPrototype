@@ -5,32 +5,30 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour, IHoldHandler, IFocusable
 {
-    public ColorPicker picker;
-    private Material originalColor;
+    public int childNumber;
+    public PositionPainelManager posi;
+    private Material originalMaterial;
+    private Color originalColor;
 
     void OnEnable()
     {
-        originalColor.color = GetComponent<MeshRenderer>().material.color;
+        originalMaterial = GetComponent<MeshRenderer>().material;
+        originalMaterial.color = GetComponent<MeshRenderer>().material.color;
     }
     void Update() { }
-    public void ChangeItem()
-    {
-        picker.mesh = GetComponent<MeshRenderer>();
-        picker.originalColor = originalColor;
-        picker.fieldName = gameObject.name;
-    }
     public void OnFocusEnter()
     {
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
     public void OnFocusExit()
     {
-        GetComponent<MeshRenderer>().material.color = originalColor.color;
+        GetComponent<MeshRenderer>().material.color = originalColor;
     }
     public void OnHoldStarted(HoldEventData eventData) { }
     public void OnHoldCompleted(HoldEventData eventData)
     {
-        ChangeItem();
+        originalMaterial.color = originalColor;
+        posi.PositionPanel(gameObject.name, childNumber, GetComponent<MeshRenderer>(), originalMaterial);
     }
     public void OnHoldCanceled(HoldEventData eventData) { }
 }

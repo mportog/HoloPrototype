@@ -8,12 +8,17 @@ public class ColorPicker : MonoBehaviour
     public MeshRenderer mesh;
     public GameObject colorChild;
     public SliderGestureControl grad;
-    public string fieldName;
+    public TextMesh fieldName;
     public Material originalColor;
 
     private Material novoMat;
 
-    void OnEnable() { }
+    void OnEnable()
+    {
+        fieldName.text = "";
+        originalColor = null;
+        mesh = null;
+    }
     public void SelectedMaterial(int novo)
     {
         novoMat = colorChild.transform.GetChild(novo).GetComponent<MeshRenderer>().material;
@@ -27,14 +32,12 @@ public class ColorPicker : MonoBehaviour
     {
         novoMat = originalColor;
         mesh.material = originalColor;
-        mesh.gameObject.GetComponent<ToggleSelection>().ChangeEditingStatus();
         gameObject.SetActive(false);
 
     }
     public void SalvarCor()
     {
         mesh.material = novoMat;
-        mesh.gameObject.GetComponent<ToggleSelection>().ChangeEditingStatus();
         gameObject.SetActive(false);
     }
 }
