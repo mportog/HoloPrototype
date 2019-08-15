@@ -15,7 +15,6 @@ public class AllowChanges : MonoBehaviour
     public InteractiveToggle toggleRotate;
     public InteractiveToggle toggleScale;
 
-
     void Start()
     {
         manipulate.ManipulationMode = ManipulationMode.None;
@@ -23,16 +22,18 @@ public class AllowChanges : MonoBehaviour
     }
     public void AllowChange(bool status)
     {
-        for (int i = 0; i < parentParts.transform.childCount; i++)
-        {
+        manipulate.enabled = !status;//nao posso mexer nada
+        for (int i = 0; i < parentParts.transform.childCount; i++)//ativo ou desativo a cor pra selecionar
             parentParts.transform.GetChild(i).GetComponent<ChangeColor>().enabled = status;
-        }
     }
 
     public void ChangeInteractions()
     {
-        if (toggleRotate.IsSelected)
-            SetRotationConstraint();        
+        if ( toggleRotate.IsSelected)
+            SetRotationConstraint();
+        else
+            axis.SetActive(false);
+
 
         manipulate.ManipulationMode = (ManipulationMode)
             ((toggleMove.IsSelected ? 1 << 0 : 0) |

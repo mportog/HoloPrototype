@@ -11,10 +11,11 @@ public class PositionPainelManager : MonoBehaviour
     void Update() { }
     public void PositionPanel(string label, int indice, MeshRenderer peca, Material originalColor)
     {
+
         colorPanel.SetActive(true);
-        colorPanel.transform.position = new Vector3(transform.GetChild(indice).position.x, transform.GetChild(indice).position.z, fixedYPos);
+        colorPanel.transform.localPosition = new Vector3(transform.GetChild(indice).position.x, fixedYPos, transform.GetChild(indice).position.z);
         colorPanel.GetComponent<ColorPicker>().mesh = peca;
         colorPanel.GetComponent<ColorPicker>().originalColor = originalColor;
-        colorPanel.GetComponent<ColorPicker>().fieldName.text = gameObject.name;
+        colorPanel.GetComponent<ColorPicker>().fieldName.text = label;
     }
 }

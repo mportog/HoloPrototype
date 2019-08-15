@@ -7,13 +7,14 @@ public class ChangeColor : MonoBehaviour, IHoldHandler, IFocusable
 {
     public int childNumber;
     public PositionPainelManager posi;
+
     private Material originalMaterial;
     private Color originalColor;
 
     void OnEnable()
     {
         originalMaterial = GetComponent<MeshRenderer>().material;
-        originalMaterial.color = GetComponent<MeshRenderer>().material.color;
+        originalColor = GetComponent<MeshRenderer>().material.color;
     }
     void Update() { }
     public void OnFocusEnter()
@@ -27,7 +28,7 @@ public class ChangeColor : MonoBehaviour, IHoldHandler, IFocusable
     public void OnHoldStarted(HoldEventData eventData) { }
     public void OnHoldCompleted(HoldEventData eventData)
     {
-        originalMaterial.color = originalColor;
+        originalMaterial.color = originalColor;      
         posi.PositionPanel(gameObject.name, childNumber, GetComponent<MeshRenderer>(), originalMaterial);
     }
     public void OnHoldCanceled(HoldEventData eventData) { }
