@@ -145,7 +145,7 @@ PlayerSettings:
       minimumSupportedHeadTracking: 0
       maximumSupportedHeadTracking: 1
     hololens:
-      depthFormat: 1
+      depthFormat: 0
       depthBufferSharingEnabled: 0
     oculus:
       sharedDepthBuffer: 0
@@ -568,7 +568,7 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: HolographPrototype
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: C:\GitLab\HoloPrototype\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany

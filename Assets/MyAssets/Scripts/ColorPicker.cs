@@ -77,6 +77,7 @@ public class ColorPicker : MonoBehaviour
     public void SalvarCor()
     {
         mesh.material = novoMat;
+        mesh.material.color = new Color(novoMat.color.r, novoMat.color.g, novoMat.color.b, grad.SliderValue);
         gameObject.SetActive(false);
     }
 }

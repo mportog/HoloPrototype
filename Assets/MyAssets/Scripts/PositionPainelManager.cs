@@ -13,7 +13,10 @@ public class PositionPainelManager : MonoBehaviour
     {
 
         colorPanel.SetActive(true);
-        colorPanel.transform.localPosition = new Vector3(transform.GetChild(indice).position.x, fixedYPos, transform.GetChild(indice).position.z);
+
+        //colorPanel.transform.localPosition = new Vector3(transform.GetChild(indice).position.x, fixedYPos, transform.GetChild(indice).position.z);
+        colorPanel.transform.localPosition = transform.GetChild(indice).localPosition;
+
         colorPanel.GetComponent<ColorPicker>().mesh = peca;
         colorPanel.GetComponent<ColorPicker>().originalColor = originalColor;
         colorPanel.GetComponent<ColorPicker>().fieldName.text = label;
