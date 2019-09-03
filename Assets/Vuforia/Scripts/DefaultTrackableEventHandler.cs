@@ -19,9 +19,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     public GameObject painel;
     private List<GameObject> objs;
     protected TrackableBehaviour mTrackableBehaviour;
-
-    #endregion // PROTECTED_MEMBER_VARIABLES
-
+        #endregion
+    
     #region UNITY_MONOBEHAVIOUR_METHODS
     private void OnEnable()
     {
@@ -31,8 +30,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             objs.Add(transform.GetChild(i).gameObject);
             Debug.Log("obj " + i + " adicionado : " + objs[i].name);
         }
-    }
-
+    }    
 
     protected virtual void Start()
     {
