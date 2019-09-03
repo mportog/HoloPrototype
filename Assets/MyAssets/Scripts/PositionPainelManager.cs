@@ -5,7 +5,7 @@ using UnityEngine;
 public class PositionPainelManager : MonoBehaviour
 {
     public GameObject colorPanel;//painel de selecao de cor a ser mudado de posição
-    public float fixedYPos;//altura em que o painel terá, fixo, acima do holograma
+    //public float fixedYPos;//altura em que o painel terá, fixo, acima do holograma
 
     void Start() { }
     void Update() { }
@@ -15,7 +15,7 @@ public class PositionPainelManager : MonoBehaviour
         colorPanel.SetActive(true);
 
         //colorPanel.transform.localPosition = new Vector3(transform.GetChild(indice).position.x, fixedYPos, transform.GetChild(indice).position.z);
-        colorPanel.transform.localPosition = transform.GetChild(indice).localPosition;
+        colorPanel.transform.position = transform.GetChild(indice).position;
 
         colorPanel.GetComponent<ColorPicker>().mesh = peca;
         colorPanel.GetComponent<ColorPicker>().originalColor = originalColor;

@@ -6,6 +6,7 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
+using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
@@ -14,14 +15,24 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
-    public GameObject[] initialize;
     #region PROTECTED_MEMBER_VARIABLES
-
+    public GameObject painel;
+    private List<GameObject> objs;
     protected TrackableBehaviour mTrackableBehaviour;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
     #region UNITY_MONOBEHAVIOUR_METHODS
+    private void OnEnable()
+    {
+        List<GameObject> objs = new List<GameObject>();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            objs.Add(transform.GetChild(i).gameObject);
+            Debug.Log("obj " + i + " adicionado : " + objs[i].name);
+        }
+    }
+
 
     protected virtual void Start()
     {
@@ -92,8 +103,18 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        foreach (GameObject go in initialize)
-            go.SetActive(true);
+        //desativa painel de escanner
+        painel.SetActive(false);
+
+        //ativa objs ref ao prototipo (settings, colorPicker, holograms)
+        for (int i = 0; i < objs.Count; i++)
+            objs[i].SetActive(true);
+
+        //paro de escanear(automático)
+        CameraDevice.Instance.Stop();
+
+        //desativa este script para nao ter que ficar olhando o QrCode
+        enabled = false;
     }
 
 

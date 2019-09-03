@@ -8,12 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2067402452, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
+  m_Script: {fileID: -2067402452, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
     vuforiaLicenseKey: ATdPd8r/////AAABmYax3xtmyU3Vm/ZrVJj08A5wDRoowL1BrsUsPg+h9jIa8+yGtRT2jEvMBodWBJp3pbGqu6Nmlw8TvkJ55AAcDtET5SLWIm/cC9iPPjYGkaart7zOUiJehBrCWtXmjw+gGDqCcbX2hqoDiFVSLtCzXY8p/Fvee5wNLGsMgvZE/sQlaoIsBxl4doP5dM7qDjFU/b5c1uNOb5qjMwFjOLSNdqdxYFWlo67voGGdqxiEwcGNo+FqQGLc+K4nP58NnLEpHJk2x3QBSKvvlrpqhamFk2DdwFEDVqHorwjccNPQUYInHh7cuAnpOwpqBArXNFBlYCGpCPjvQVy6+NpVBDZHdApxla5GglXTfQt8uHKR0SVN
-    ufoLicenseKey: QVJEWEdHWC8vLy8vQUFBQUtFU0x4NjYwOVVWVW1CNHVRN3BYd0JhVG1seHdtS2laZzJIQVZaQk1ybFVMMTN2Si9TYkhtVFFFK29zWmx0d3Y3Rmgxb3gvNFJ5SDYzZXlGSUc0WlA4QSs0U1hTODBkUVozVVViZjJzZ0lvcmRoOStEYlY0YTVYbHdubHRMamt0ZEVYTjRZeWkzSVJjSkhKT2pDaFcxNDdCMjJnNHk3MldDeVdrVENWa2I3eWlac3JMNm1NaFhVeXB0dG9ZWW1sWEtvbVk0WUtOc0JXWm1VZmZDMEF0YmEvcllFSXpBRFpVK0J5ekNyaURwVkszbUQ4TThMNHpZdHQ1eE9Fc2NLQXJrOW1aL2d6Z3NvYU53eW13Z3k0WUFHTEpMUjBnRkZQbmR5YlUzM29ZQUZoY2t6SDIrNENJV0pVWDVCcFc3VHNjbzBZMHVBNUlkYlBQYW9LbkJCbVFEM0FaR1JEakNpQjNiUFhwL29UdnVFZTU=
+    ufoLicenseKey: QVFUeFRnWC8vLy8vQUFBQUtJQ0hjRGs5dzArcXVkalNIUUNNVW41VUwrVmtoKzkwVVl5Vjc0eVJBczBiZzVQRVZtWHRCZ0M4SURVMzExTm45Zzh0aXZmU0QwYkhFLzZKekg1M3Z2MlFYQWNKZmFTVDR2Vmg4Z1E2dEp1YmVXblk4Zzd4bEVvV1lML3pxSEd0S1E1SEFXS3lYVE1kWTVaZmNZUFFXM2RockZwU2Jwb3BnZFdRSlcxN0Q2NGdwSFFtZlNsd2FSMVJtMUtUKzAzMG9ZZ1pkVm95S1hIUWhDUUUrTHAyZTVrZnVMaFV3VGZxZGdHdkwrQzNTMjRBRlRiU2EyMmhPLzJ0TXY1V1hDNUVRemR6WUYxcVZvbjduVVlWcnZBVFlSZ3gzMk5mT2tsSWxIemlENHloTU56TGNsVCs4UnZGdEZlYkZqY25uU01xTmdzOXJpdXhocWRXTUMvalpIdlB0dGt1TWdOYjNQUTk4eStkd3JoSk1QaEc=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   digitalEyewear:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
-    eyewearType: 1
+    eyewearType: 0
     stereoFramework: 0
     seeThroughConfiguration: 0
     viewerName: 
@@ -44,9 +44,11 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
-    - Prototyping
+    - VuforiaMars_Images
+    - VuforiaMars_VuMark
     dataSetsToActivate:
-    - Prototyping
+    - VuforiaMars_Images
+    - VuforiaMars_VuMark
   videoBackground:
     clippingMode: 0
     numDivisions: 2
@@ -68,5 +70,5 @@ MonoBehaviour:
   webcam:
     deviceNameSetInEditor: 
     flipHorizontally: 0
-    turnOffWebCam: 1
+    turnOffWebCam: 0
     renderTextureLayer: 30

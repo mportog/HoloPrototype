@@ -29,10 +29,10 @@ public class AllowChanges : MonoBehaviour
 
     public void ChangeInteractions()
     {
-        if ( toggleRotate.IsSelected)
-            SetRotationConstraint();
-        else
+        if (!toggleRotate.IsSelected)
             axis.SetActive(false);
+        else
+            axis.SetActive(true);
 
 
         manipulate.ManipulationMode = (ManipulationMode)
@@ -41,10 +41,9 @@ public class AllowChanges : MonoBehaviour
             (toggleRotate.IsSelected ? 1 << 2 : 0));
     }
 
-    private void SetRotationConstraint()
+    public void SetRotationConstraint(int constraint)
     {
-        axis.SetActive(true);
-        var rotar = axis.GetComponent<InteractiveSet>().SelectedIndices.ToArray();
-        manipulate.RotationConstraint = ((AxisConstraint)rotar[0]);
+        //var rotar = axis.GetComponent<InteractiveSet>().SelectedIndices.ToArray();
+        manipulate.RotationConstraint = (AxisConstraint)constraint;//((AxisConstraint)rotar[0]);
     }
 }
